@@ -1,4 +1,5 @@
 @include('admin.layouts.header')
+@include('admin.layouts.menu')
 
 <div class="container-fluid page-body-wrapper">
     <div class="main-panel">
