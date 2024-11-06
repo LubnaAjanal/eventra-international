@@ -1,5 +1,8 @@
-@extends('main')
+@extends('website.layouts.main')
 
 @section('body')
-<h1>Hello</h1>
+<section>
+
+    
+</section>
 @endsection

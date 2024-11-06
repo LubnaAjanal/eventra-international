@@ -1,7 +1,7 @@
-@include('header')
+@include('website.layouts.header')
 
-  <main class="main">
+<main class="main container">
     @yield('body')
-  </main>
+</main>
 
-@include('footer')
+@include('website.layouts.footer')
