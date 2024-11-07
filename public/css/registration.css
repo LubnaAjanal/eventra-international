@@ -167,7 +167,7 @@ body {
 }
 
 .form_wrapper input[type="submit"]:focus {
-    background: rgb(225.4548117155, 167.3682008368, 9.8451882845);
+    background: #4b49ac;
 }
 
 .form_wrapper input[type="checkbox"],
