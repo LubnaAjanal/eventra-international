@@ -219,7 +219,7 @@ h6 {
     --heading-color: #ffffff;
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 20px 0;
+    padding: 5px 0;
     transition: all 0.5s;
     z-index: 997;
 }
@@ -840,8 +840,14 @@ h6 {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding: 92px 0 0 0;
+    padding: 62px 0 0 0;
     /* display: flex; */
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 46px 0 0 0;
+    }
 }
 
 /* .hero img {
@@ -1666,7 +1672,7 @@ h6 {
 }
 
 #uniqueSlider .carousel-item img {
-    height: 450px;
+    height: 400px;
     object-fit: fill;
     width: 100%;
 }
