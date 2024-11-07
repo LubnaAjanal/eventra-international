@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('website/layouts/index');
-// });
-
 Route::get('/', function () {
-    return view('admin/layouts/main');
-})->name('admin');
+    return view('layouts/index');
+});
