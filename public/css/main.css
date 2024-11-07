@@ -242,7 +242,7 @@ h6 {
 
 .header .cta-btn,
 .header .cta-btn:focus {
-    color: var(--contrast-color);
+    color: #000;
     background: var(--accent-color);
     font-size: 14px;
     padding: 8px 25px;
@@ -253,7 +253,8 @@ h6 {
 
 .header .cta-btn:hover,
 .header .cta-btn:focus:hover {
-    color: var(--contrast-color);
+    color: #000;
+    font-weight: bold;
     background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
@@ -840,10 +841,17 @@ h6 {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding: 62px 0 0 0;
+    padding: 63px 0 0 0;
     /* display: flex; */
 }
 
+@media (max-width: 1024px) {
+    .main {
+        padding: 48px 0 0 0;
+    }
+}
+
+/* For screens up to 768px */
 @media (max-width: 768px) {
     .main {
         padding: 46px 0 0 0;

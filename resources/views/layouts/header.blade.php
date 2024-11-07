@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <link rel="icon" href="{{ asset('../img/logo.png') }}" type="image/png" sizes="64x64">
     <title>Events</title>
     <meta name="description" content="">
@@ -37,7 +38,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
-                <img src="{{ asset('../img/logo.png') }}" alt="">
+                <img src="{{ asset('../img/logo.png') }}" style="border-radius: 50%;" alt="Logo">
             </a>
 
             <nav id="navmenu" class="navmenu">
