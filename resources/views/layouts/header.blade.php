@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="{{ asset('../img/logo.png') }}" type="image/png" sizes="64x64">
     <title>Events</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
