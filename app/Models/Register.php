@@ -15,6 +15,7 @@ class Register extends Model
 
     // Specify the fillable fields to prevent mass assignment vulnerabilities
     protected $fillable = [
+        'user_unique_id',
         'fullname', 
         'email', 
         'mobile', 

@@ -230,7 +230,7 @@
                             text: response.data.message,
                             confirmButtonText: 'OK'
                         }).then(() => {
-                            window.location.reload();
+                           // window.location.reload();
                         });
                     } else {
                         Swal.fire({
