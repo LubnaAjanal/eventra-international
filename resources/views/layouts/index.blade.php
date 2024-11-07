@@ -8,7 +8,41 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for selectors -->
 
 @section('body')
-    <section>
+    {{-- slider --}}
+    <section class="slider">
+        <div id="uniqueSlider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#uniqueSlider" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#uniqueSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#uniqueSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../img/hotels-1.jpg" class="d-block w-100" alt="First Slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/hotels-2.jpg" class="d-block w-100" alt="Second Slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/hotels-3.jpg" class="d-block w-100" alt="Third Slide">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#uniqueSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#uniqueSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    {{-- registeration form --}}
+    <section class="registeration">
         <div class="register-form">
             <div class="form_wrapper">
                 <div class="form_container">

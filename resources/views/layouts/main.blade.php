@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<main class="main container">
+<main class="main">
     @yield('body')
 </main>
 
