@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="icon" href="{{ asset('../img/logo.png') }}" type="image/png" sizes="64x64">
+    <link rel="icon" href="{{ asset('../img/card-logo1.jpeg') }}" type="image/png" sizes="64x64">
     <title>Karnataka Govt Medicalofficers Association</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -37,13 +37,13 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto">
                 <img src="{{ asset('../img/card-logo1.jpeg') }}" style="border-radius: 50%;" alt="Logo">
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#" class="active">Home<br></a></li>
+                    <li><a href="{{ url('/') }}" class="active">Home<br></a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">committee members</a></li>
                     <li><a href="#">News & Media</a></li>

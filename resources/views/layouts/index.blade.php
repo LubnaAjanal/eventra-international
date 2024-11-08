@@ -42,12 +42,12 @@
     </section>
 
     {{-- registeration form --}}
-    <section class="registeration">
+    <section class="registeration mb-3">
         <div class="register-form">
             <div class="form_wrapper">
                 <div class="form_container">
                     <div class="title_container">
-                        <h2>Fill The Details</h2>
+                        <h2>Fill In Details</h2>
                     </div>
                     <div class="row clearfix">
                         <div class="">
@@ -65,8 +65,7 @@
                                         <label for="email">Email</label>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-envelope"></i></span>
-                                            <input type="email" id="email" name="email" placeholder="Email"
-                                                required />
+                                            <input type="email" id="email" name="email" placeholder="Email"/>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +95,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-location-arrow"></i></span>
                                             <input type="text" id="working_place" name="working_place"
-                                                placeholder="Working Place" required />
+                                                placeholder="Working Place"/>
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -104,7 +103,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-location-arrow"></i></span>
                                             <input type="text" id="departuring_place" name="departuring_place"
-                                                placeholder="Departuring Place" required />
+                                                placeholder="Departuring Place"/>
                                         </div>
 
                                     </div>
@@ -116,7 +115,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-calendar"></i></span>
                                             <input type="date" id="departuring_date" name="departuring_date"
-                                                placeholder="Departuring Date" required />
+                                                placeholder="Departuring Date"/>
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -124,7 +123,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-clock"></i></span>
                                             <input type="time" id="departuring_time" name="departuring_time"
-                                                placeholder="Departuring Time" />
+                                                placeholder="Departuring Time"/>
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +132,7 @@
                                 <div class="input_field"> <span><i aria-hidden="true"
                                             class="fa fa-location-arrow"></i></span>
                                     <input type="text" id="stay_selected_at" name="stay_selected_at"
-                                        placeholder="Staying Place" required />
+                                        placeholder="Staying Place"/>
                                 </div>
 
                                 <div class="row clearfix">
@@ -142,7 +141,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-calendar"></i></span>
                                             <input type="date" id="arrival_date" name="arrival_date"
-                                                placeholder="Arrival Date" required />
+                                                placeholder="Arrival Date"/>
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -150,7 +149,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-clock"></i></span>
                                             <input type="time" id="arrival_time" name="arrival_time"
-                                                placeholder="Arrival Time" />
+                                                placeholder="Arrival Time"/>
                                         </div>
                                     </div>
                                 </div>
