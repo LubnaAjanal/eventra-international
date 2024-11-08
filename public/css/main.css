@@ -219,7 +219,7 @@ h6 {
     --heading-color: #ffffff;
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 5px 0;
+    padding: 10px 0;
     transition: all 0.5s;
     z-index: 997;
 }
@@ -229,8 +229,14 @@ h6 {
 }
 
 .header .logo img {
-    max-height: 36px;
+    max-height: 50px;
     margin-right: 8px;
+}
+
+@media (max-width: 1200px) {
+    .header .logo img {
+        max-height: 30px;
+    }
 }
 
 .header .logo h1 {
@@ -841,22 +847,23 @@ h6 {
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding: 63px 0 0 0;
+    padding: 73px 0 0 0;
     /* display: flex; */
 }
 
 @media (max-width: 1024px) {
     .main {
-        padding: 48px 0 0 0;
+        padding: 57px 0 0 0;
     }
 }
 
 /* For screens up to 768px */
 @media (max-width: 768px) {
     .main {
-        padding: 46px 0 0 0;
+        padding: 50px 0 0 0;
     }
 }
+
 
 /* .hero img {
   position: absolute;
@@ -1712,6 +1719,20 @@ h6 {
 }
 
 @media (max-width: 768px) {
+    #uniqueSlider .carousel-item img {
+        height: 200px;
+        object-fit: fill;
+        width: 100%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 5px;
+        border: 1px solid #fff;
+    }
+
     #header-carousel .carousel-item {
         position: relative;
         min-height: 450px;
