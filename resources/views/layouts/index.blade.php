@@ -47,7 +47,7 @@
             <div class="form_wrapper">
                 <div class="form_container">
                     <div class="title_container">
-                        <h2>Registration Form</h2>
+                        <h2>Fill The Details</h2>
                     </div>
                     <div class="row clearfix">
                         <div class="">
@@ -81,13 +81,59 @@
                                         </div>
                                     </div>
                                     <div class="col_half">
-                                        <label for="gov_id">Government ID</label>
+                                        <label for="gov_id">KMC ID</label>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-id-card"></i></span>
                                             <input type="text" id="gov_id" name="gov_id" placeholder="Government ID"
                                                 required />
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col_half">
+                                        <label for="working_place">Working Place</label>
+                                        <div class="input_field"> <span><i aria-hidden="true"
+                                                    class="fa fa-location-arrow"></i></span>
+                                            <input type="text" id="working_place" name="working_place"
+                                                placeholder="Working Place" required />
+                                        </div>
+                                    </div>
+                                    <div class="col_half">
+                                        <label for="departuring_place">Departuring Place</label>
+                                        <div class="input_field"> <span><i aria-hidden="true"
+                                                    class="fa fa-location-arrow"></i></span>
+                                            <input type="text" id="departuring_place" name="departuring_place"
+                                                placeholder="Departuring Place" required />
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col_half">
+                                        <label for="departuring_date">Departuring Date</label>
+                                        <div class="input_field"> <span><i aria-hidden="true"
+                                                    class="fa fa-calendar"></i></span>
+                                            <input type="date" id="departuring_date" name="departuring_date"
+                                                placeholder="Departuring Date" required />
+                                        </div>
+                                    </div>
+                                    <div class="col_half">
+                                        <label for="departuring_time">Departuring Time</label>
+                                        <div class="input_field"> <span><i aria-hidden="true"
+                                                    class="fa fa-clock"></i></span>
+                                            <input type="time" id="departuring_time" name="departuring_time"
+                                                placeholder="Departuring Time" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label for="stay_selected_at">Staying Place</label>
+                                <div class="input_field"> <span><i aria-hidden="true"
+                                            class="fa fa-location-arrow"></i></span>
+                                    <input type="text" id="stay_selected_at" name="stay_selected_at"
+                                        placeholder="Staying Place" required />
                                 </div>
 
                                 <div class="row clearfix">
@@ -111,82 +157,39 @@
 
                                 <div class="row clearfix">
                                     <div class="col_half">
-                                        <label for="working_place">Working Place</label>
-                                        <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-location-arrow"></i></span>
-                                            <input type="text" id="working_place" name="working_place"
-                                                placeholder="Working Place" required />
-                                        </div>
-                                    </div>
-                                    <div class="col_half">
-                                        <label for="stay_selected_at">Staying Place</label>
-                                        <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-location-arrow"></i></span>
-                                            <input type="text" id="stay_selected_at" name="stay_selected_at"
-                                                placeholder="Staying Place" required />
-                                        </div>
-                                    </div>
-                                </div>
+                                        <label for="accomodation_request">Select Accommodation Request</label>
+                                        <div class="input_field radio_option">
+                                            <input type="radio" name="accomodation_request"
+                                                id="accomodation_request_yes" value="Yes">
+                                            <label for="accomodation_request_yes">Yes</label>
 
-                                <label for="departuring_place">Departuring Place</label>
-                                <div class="input_field"> <span><i aria-hidden="true"
-                                            class="fa fa-location-arrow"></i></span>
-                                    <input type="text" id="departuring_place" name="departuring_place"
-                                        placeholder="Departuring Place" required />
-                                </div>
+                                            <input type="radio" name="accomodation_request"
+                                                id="accomodation_request_no" value="No">
+                                            <label for="accomodation_request_no">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col_half">
+                                        <label for="fees">Select Registration Fees</label>
+                                        <div class="input_field radio_option">
+                                            <input type="radio" name="fees" id="fees_cash" value="cash">
+                                            <label for="fees_cash">Cash</label>
+                                            <input type="radio" name="fees" id="fees_online" value="online">
+                                            <label for="fees_online">Online</label>
+                                        </div>
 
-                                <div class="row clearfix">
-                                    <div class="col_half">
-                                        <label for="departuring_date">Departuring Date</label>
-                                        <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-calendar"></i></span>
-                                            <input type="date" id="departuring_date" name="departuring_date"
-                                                placeholder="Departuring Date" required />
+                                        <!-- Conditional input fields -->
+                                        <div id="cash_field" class="conditional_field" style="display: none;">
+                                            <label for="receipt_no">Receipt Number</label>
+                                            <input type="text" id="receipt_no" name="receipt_no"
+                                                placeholder="Enter Receipt Number">
                                         </div>
-                                    </div>
-                                    <div class="col_half">
-                                        <label for="departuring_time">Departuring Time</label>
-                                        <div class="input_field"> <span><i aria-hidden="true"
-                                                    class="fa fa-clock"></i></span>
-                                            <input type="time" id="departuring_time" name="departuring_time"
-                                                placeholder="Departuring Time" />
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row clearfix">
-                                    <div class="col_half">
-                                        <label for="adults">Select Adults</label>
-                                        <div class="input_field select_option">
-                                            <select id="adults" name="adults">
-                                                <option value="">Select adults</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                            </select>
-                                            <div class="select_arrow"></div>
+                                        <div id="online_field" class="conditional_field" style="display: none;">
+                                            <label for="utr_no">UTR Number</label>
+                                            <input type="text" id="utr_no" name="utr_no"
+                                                placeholder="Enter UTR Number">
                                         </div>
                                     </div>
-                                    <div class="col_half">
-                                        <label for="children">Select Children</label>
-                                        <div class="input_field select_option">
-                                            <select id="children" name="children">
-                                                <option value="">Select children</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                            </select>
-                                            <div class="select_arrow"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <label for="accomodation_request">Select Accommodation Request</label>
-                                <div class="input_field select_option">
-                                    <select id="accomodation_request" name="accomodation_request">
-                                        <option value="">Select accommodation request</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                    <div class="select_arrow"></div>
                                 </div>
 
                                 <input class="button" type="submit" value="Register" />
@@ -200,6 +203,33 @@
     </section>
 
     <script>
+         document.addEventListener("DOMContentLoaded", function() {
+                const cashRadio = document.getElementById("fees_cash");
+                const onlineRadio = document.getElementById("fees_online");
+                const cashField = document.getElementById("cash_field");
+                const onlineField = document.getElementById("online_field");
+
+                function toggleFields() {
+                    if (cashRadio.checked) {
+                        cashField.style.display = "block";
+                        onlineField.style.display = "none";
+                    } else if (onlineRadio.checked) {
+                        onlineField.style.display = "block";
+                        cashField.style.display = "none";
+                    } else {
+                        cashField.style.display = "none";
+                        onlineField.style.display = "none";
+                    }
+                }
+
+                cashRadio.addEventListener("change", toggleFields);
+                onlineRadio.addEventListener("change", toggleFields);
+
+                // Initialize fields based on the default selection (if any)
+                toggleFields();
+            });
+
+            // Form Submit Button
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -216,9 +246,9 @@
                 departuring_place: $('#departuring_place').val(),
                 departuring_date: $('#departuring_date').val(),
                 departuring_time: $('#departuring_time').val(),
-                adults: $('#adults').val(),
-                children: $('#children').val(),
-                accomodation_request: $('#accomodation_request').val()
+                accomodation_request: $('input[name="accomodation_request"]:checked')
+                    .val(), // capture Yes or No
+                fees: $('input[name="fees"]:checked').val(), // capture cash or online
             };
 
             axios.post('{{ url('api/registers') }}', data)
@@ -230,7 +260,7 @@
                             text: response.data.message,
                             confirmButtonText: 'OK'
                         }).then(() => {
-                           // window.location.reload();
+                            // window.location.reload();
                         });
                     } else {
                         Swal.fire({

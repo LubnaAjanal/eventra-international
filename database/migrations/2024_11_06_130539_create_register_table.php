@@ -25,9 +25,8 @@ return new class extends Migration
             $table->string('departuring_place')->nullable();
             $table->date('departuring_date')->nullable();
             $table->time('departuring_time')->nullable();
-            $table->string('adults')->nullable();
-            $table->string('children')->nullable();
             $table->string('accomodation_request')->nullable();
+            $table->bigInteger('fees')->nullable();
             $table->softDeletes(); 
             $table->timestamps();
         });
