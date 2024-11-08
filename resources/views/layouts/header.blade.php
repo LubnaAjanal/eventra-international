@@ -6,13 +6,13 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <link rel="icon" href="{{ asset('../img/logo.png') }}" type="image/png" sizes="64x64">
-    <title>Events</title>
+    <title>Karnataka Govt Medicalofficers Association</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('../img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('../img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    {{-- <link href="{{ asset('../img/favicon.png') }}" rel="icon"> --}}
+    {{-- <link href="{{ asset('../img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -38,7 +38,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
-                <img src="{{ asset('../img/logo.png') }}" style="border-radius: 50%;" alt="Logo">
+                <img src="{{ asset('../img/card-logo1.jpeg') }}" style="border-radius: 50%;" alt="Logo">
             </a>
 
             <nav id="navmenu" class="navmenu">
