@@ -65,7 +65,7 @@
                                         <label for="email">Email</label>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-envelope"></i></span>
-                                            <input type="email" id="email" name="email" placeholder="Email"/>
+                                            <input type="email" id="email" name="email" placeholder="Email" />
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-location-arrow"></i></span>
                                             <input type="text" id="working_place" name="working_place"
-                                                placeholder="Working Place"/>
+                                                placeholder="Working Place" />
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -103,7 +103,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-location-arrow"></i></span>
                                             <input type="text" id="departuring_place" name="departuring_place"
-                                                placeholder="Departuring Place"/>
+                                                placeholder="Departuring Place" />
                                         </div>
 
                                     </div>
@@ -115,7 +115,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-calendar"></i></span>
                                             <input type="date" id="departuring_date" name="departuring_date"
-                                                placeholder="Departuring Date"/>
+                                                placeholder="Departuring Date" />
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -123,7 +123,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-clock"></i></span>
                                             <input type="time" id="departuring_time" name="departuring_time"
-                                                placeholder="Departuring Time"/>
+                                                placeholder="Departuring Time" />
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                 <div class="input_field"> <span><i aria-hidden="true"
                                             class="fa fa-location-arrow"></i></span>
                                     <input type="text" id="stay_selected_at" name="stay_selected_at"
-                                        placeholder="Staying Place"/>
+                                        placeholder="Staying Place" />
                                 </div>
 
                                 <div class="row clearfix">
@@ -141,7 +141,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-calendar"></i></span>
                                             <input type="date" id="arrival_date" name="arrival_date"
-                                                placeholder="Arrival Date"/>
+                                                placeholder="Arrival Date" />
                                         </div>
                                     </div>
                                     <div class="col_half">
@@ -149,7 +149,7 @@
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-clock"></i></span>
                                             <input type="time" id="arrival_time" name="arrival_time"
-                                                placeholder="Arrival Time"/>
+                                                placeholder="Arrival Time" />
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +166,19 @@
                                                 id="accomodation_request_no" value="No">
                                             <label for="accomodation_request_no">No</label>
                                         </div>
+                                        <div id="accommodation_dropdown" class="input_field select_option"
+                                            style="display: none;">
+                                            <label for="accommodation_type">Accommodation Type</label>
+                                            <select id="accommodation_type" name="accommodation_type">
+                                                <option value="">Select Type</option>
+                                                <option value="Single Room">Single Room</option>
+                                                <option value="Double Room">Double Room</option>
+                                                <option value="Suite">Suite</option>
+                                            </select>
+                                            <div class="select_arrow mt-3"></div>
+                                        </div>
                                     </div>
+
                                     <div class="col_half">
                                         <label for="fees">Select Registration Fees</label>
                                         <div class="input_field radio_option">
@@ -179,21 +191,26 @@
                                         <!-- Conditional input fields -->
                                         <div id="cash_field" class="conditional_field" style="display: none;">
                                             <label for="receipt_no">Receipt Number</label>
-                                            <input type="text" id="receipt_no" name="receipt_no"
-                                                placeholder="Enter Receipt Number">
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-location-arrow"></i></span>
+                                                <input type="text" id="receipt_no" name="receipt_no"
+                                                    placeholder="Enter Receipt Number" />
+                                            </div>
                                         </div>
 
                                         <div id="online_field" class="conditional_field" style="display: none;">
                                             <label for="utr_no">UTR Number</label>
-                                            <input type="text" id="utr_no" name="utr_no"
-                                                placeholder="Enter UTR Number">
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-location-arrow"></i></span>
+                                                <input type="text" id="utr_no" name="utr_no"
+                                                    placeholder="Enter UTR Number" />
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
-
                                 <input class="button" type="submit" value="Register" />
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -202,37 +219,62 @@
     </section>
 
     <script>
-         document.addEventListener("DOMContentLoaded", function() {
-                const cashRadio = document.getElementById("fees_cash");
-                const onlineRadio = document.getElementById("fees_online");
-                const cashField = document.getElementById("cash_field");
-                const onlineField = document.getElementById("online_field");
+        const cashRadio = document.getElementById("fees_cash");
+        const onlineRadio = document.getElementById("fees_online");
 
-                function toggleFields() {
-                    if (cashRadio.checked) {
-                        cashField.style.display = "block";
-                        onlineField.style.display = "none";
-                    } else if (onlineRadio.checked) {
-                        onlineField.style.display = "block";
-                        cashField.style.display = "none";
-                    } else {
-                        cashField.style.display = "none";
-                        onlineField.style.display = "none";
-                    }
+        // Define these variables in the global scope
+        let cashField;
+        let onlineField;
+        let accomodationYesRadio;
+        let accomodationNoRadio;
+        let accommodationDropdown;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Assign the variables inside the DOMContentLoaded event
+            cashField = document.getElementById("cash_field");
+            onlineField = document.getElementById("online_field");
+            accomodationYesRadio = document.getElementById("accomodation_request_yes");
+            accomodationNoRadio = document.getElementById("accomodation_request_no");
+            accommodationDropdown = document.getElementById("accommodation_dropdown");
+
+            function toggleFields() {
+                if (cashRadio.checked) {
+                    cashField.style.display = "block";
+                    onlineField.style.display = "none";
+                } else if (onlineRadio.checked) {
+                    onlineField.style.display = "block";
+                    cashField.style.display = "none";
+                } else {
+                    cashField.style.display = "none";
+                    onlineField.style.display = "none";
                 }
+            }
 
-                cashRadio.addEventListener("change", toggleFields);
-                onlineRadio.addEventListener("change", toggleFields);
+            function toggleAccommodationDropdown() {
+                if (accomodationYesRadio.checked) {
+                    accommodationDropdown.style.display = "block";
+                } else {
+                    accommodationDropdown.style.display = "none";
+                }
+            }
 
-                // Initialize fields based on the default selection (if any)
-                toggleFields();
-            });
+            cashRadio.addEventListener("change", toggleFields);
+            onlineRadio.addEventListener("change", toggleFields);
+            accomodationYesRadio.addEventListener("change", toggleAccommodationDropdown);
+            accomodationNoRadio.addEventListener("change", toggleAccommodationDropdown);
 
-            // Form Submit Button
+            // Initialize fields based on the default selection (if any)
+            toggleFields();
+            toggleAccommodationDropdown();
+        });
+
+        // Form Submit Button
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             // Manually create the data object from input fields
+            let feesNoValue = cashField.style.display === "block" ? $('#receipt_no').val() : $('#utr_no').val();
+
             let data = {
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
@@ -245,9 +287,10 @@
                 departuring_place: $('#departuring_place').val(),
                 departuring_date: $('#departuring_date').val(),
                 departuring_time: $('#departuring_time').val(),
-                accomodation_request: $('input[name="accomodation_request"]:checked')
-                    .val(), // capture Yes or No
-                fees: $('input[name="fees"]:checked').val(), // capture cash or online
+                accomodation_request: $('input[name="accomodation_request"]:checked').val(),
+                fees: $('input[name="fees"]:checked').val(),
+                accommodation_type: $('#accommodation_type').val(),
+                fees_no: feesNoValue,
             };
 
             axios.post('{{ url('api/registers') }}', data)
