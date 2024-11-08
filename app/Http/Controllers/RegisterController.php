@@ -71,8 +71,8 @@ class RegisterController extends Controller
             'departuring_time' => 'nullable|date_format:H:i',
             'accomodation_request' => 'nullable|string',
             'accommodation_type' => 'nullable|string',
-            'fees' => 'nullable|string',
-            'fees_no' => 'required_if:fees,cash,online|string'
+            'fees_type' => 'nullable|string',
+            'fees_no' => 'nullable|string',
         ]);
 
         try {

@@ -219,18 +219,7 @@
     </section>
 
     <script>
-        const cashRadio = document.getElementById("fees_cash");
-        const onlineRadio = document.getElementById("fees_online");
-
-        // Define these variables in the global scope
-        let cashField;
-        let onlineField;
-        let accomodationYesRadio;
-        let accomodationNoRadio;
-        let accommodationDropdown;
-
         document.addEventListener("DOMContentLoaded", function() {
-            // Assign the variables inside the DOMContentLoaded event
             cashField = document.getElementById("cash_field");
             onlineField = document.getElementById("online_field");
             accomodationYesRadio = document.getElementById("accomodation_request_yes");
@@ -238,24 +227,12 @@
             accommodationDropdown = document.getElementById("accommodation_dropdown");
 
             function toggleFields() {
-                if (cashRadio.checked) {
-                    cashField.style.display = "block";
-                    onlineField.style.display = "none";
-                } else if (onlineRadio.checked) {
-                    onlineField.style.display = "block";
-                    cashField.style.display = "none";
-                } else {
-                    cashField.style.display = "none";
-                    onlineField.style.display = "none";
-                }
+                cashField.style.display = cashRadio.checked ? "block" : "none";
+                onlineField.style.display = onlineRadio.checked ? "block" : "none";
             }
 
             function toggleAccommodationDropdown() {
-                if (accomodationYesRadio.checked) {
-                    accommodationDropdown.style.display = "block";
-                } else {
-                    accommodationDropdown.style.display = "none";
-                }
+                accommodationDropdown.style.display = accomodationYesRadio.checked ? "block" : "none";
             }
 
             cashRadio.addEventListener("change", toggleFields);
@@ -263,18 +240,14 @@
             accomodationYesRadio.addEventListener("change", toggleAccommodationDropdown);
             accomodationNoRadio.addEventListener("change", toggleAccommodationDropdown);
 
-            // Initialize fields based on the default selection (if any)
-            toggleFields();
+            toggleFields(); 
             toggleAccommodationDropdown();
         });
 
-        // Form Submit Button
+        // Form Submission Script
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            // Manually create the data object from input fields
             let feesNoValue = cashField.style.display === "block" ? $('#receipt_no').val() : $('#utr_no').val();
-
             let data = {
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
