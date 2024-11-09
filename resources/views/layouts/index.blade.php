@@ -397,7 +397,11 @@
             }
 
             function toggleAccommodationDropdown() {
-                accommodationDropdown.style.display = accomodationYesRadio.checked ? "block" : "none";
+                if (accomodationYesRadio.checked) {
+                    accommodationDropdown.style.display = "block";
+                } else {
+                    accommodationDropdown.style.display = "none";
+                }
             }
 
             cashRadio.addEventListener("change", toggleFields);
@@ -410,7 +414,7 @@
             toggleAccommodationDropdown();
         });
 
-        // Form Submission Script
+        // Form Submit Button
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
