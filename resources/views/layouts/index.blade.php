@@ -83,7 +83,7 @@
                                         <label for="gov_id">KMC ID</label>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-id-card"></i></span>
-                                            <input type="text" id="gov_id" name="gov_id" placeholder="Government ID"
+                                            <input type="text" id="gov_id" name="gov_id" placeholder="KMC ID"
                                                 required />
                                         </div>
                                     </div>
@@ -128,13 +128,6 @@
                                     </div>
                                 </div>
 
-                                <label for="stay_selected_at">Staying Place</label>
-                                <div class="input_field"> <span><i aria-hidden="true"
-                                            class="fa fa-location-arrow"></i></span>
-                                    <input type="text" id="stay_selected_at" name="stay_selected_at"
-                                        placeholder="Staying Place" />
-                                </div>
-
                                 <div class="row clearfix">
                                     <div class="col_half">
                                         <label for="arrival_date">Arrival Date</label>
@@ -156,7 +149,7 @@
 
                                 <div class="row clearfix">
                                     <div class="col_half">
-                                        <label for="accomodation_request">Select Accommodation Request</label>
+                                        <label for="accomodation_request">Accommodation Assistance Required?</label>
                                         <div class="input_field radio_option">
                                             <input type="radio" name="accomodation_request"
                                                 id="accomodation_request_yes" value="Yes">
@@ -168,7 +161,7 @@
                                         </div>
                                         <div id="accommodation_dropdown" class="input_field select_option"
                                             style="display: none;">
-                                            <label for="accommodation_type">Accommodation Type</label>
+                                            <label for="accommodation_type">Accommodation At</label>
                                             <select id="accommodation_type" name="accommodation_type">
                                                 <option value="">Select Type</option>
                                                 <option value="Single Room">Single Room</option>
@@ -219,7 +212,18 @@
     </section>
 
     <script>
+        const cashRadio = document.getElementById("fees_cash");
+        const onlineRadio = document.getElementById("fees_online");
+
+        // Define these variables in the global scope
+        let cashField;
+        let onlineField;
+        let accomodationYesRadio;
+        let accomodationNoRadio;
+        let accommodationDropdown;
+
         document.addEventListener("DOMContentLoaded", function() {
+            // Assign the variables inside the DOMContentLoaded event
             cashField = document.getElementById("cash_field");
             onlineField = document.getElementById("online_field");
             accomodationYesRadio = document.getElementById("accomodation_request_yes");
@@ -227,12 +231,24 @@
             accommodationDropdown = document.getElementById("accommodation_dropdown");
 
             function toggleFields() {
-                cashField.style.display = cashRadio.checked ? "block" : "none";
-                onlineField.style.display = onlineRadio.checked ? "block" : "none";
+                if (cashRadio.checked) {
+                    cashField.style.display = "block";
+                    onlineField.style.display = "none";
+                } else if (onlineRadio.checked) {
+                    onlineField.style.display = "block";
+                    cashField.style.display = "none";
+                } else {
+                    cashField.style.display = "none";
+                    onlineField.style.display = "none";
+                }
             }
 
             function toggleAccommodationDropdown() {
-                accommodationDropdown.style.display = accomodationYesRadio.checked ? "block" : "none";
+                if (accomodationYesRadio.checked) {
+                    accommodationDropdown.style.display = "block";
+                } else {
+                    accommodationDropdown.style.display = "none";
+                }
             }
 
             cashRadio.addEventListener("change", toggleFields);
@@ -240,14 +256,18 @@
             accomodationYesRadio.addEventListener("change", toggleAccommodationDropdown);
             accomodationNoRadio.addEventListener("change", toggleAccommodationDropdown);
 
-            toggleFields(); 
+            // Initialize fields based on the default selection (if any)
+            toggleFields();
             toggleAccommodationDropdown();
         });
 
-        // Form Submission Script
+        // Form Submit Button
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // Manually create the data object from input fields
             let feesNoValue = cashField.style.display === "block" ? $('#receipt_no').val() : $('#utr_no').val();
+
             let data = {
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
@@ -261,7 +281,7 @@
                 departuring_date: $('#departuring_date').val(),
                 departuring_time: $('#departuring_time').val(),
                 accomodation_request: $('input[name="accomodation_request"]:checked').val(),
-                fees: $('input[name="fees"]:checked').val(),
+                fees_type: $('input[name="fees_type"]:checked').val(),
                 accommodation_type: $('#accommodation_type').val(),
                 fees_no: feesNoValue,
             };
