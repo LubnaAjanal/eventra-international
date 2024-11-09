@@ -173,7 +173,7 @@
                                     </div>
 
                                     <div class="col_half">
-                                        <label for="fees">Select Registration Fees</label>
+                                        <label for="fees">Registration Fee Type</label>
                                         <div class="input_field radio_option">
                                             <input type="radio" name="fees" id="fees_cash" value="cash">
                                             <label for="fees_cash">Cash</label>
