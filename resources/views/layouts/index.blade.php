@@ -51,7 +51,7 @@
                     </div>
                     <div class="row clearfix">
                         <div class="">
-                            <form id="registerForm" method="POST">
+                            <form id='registerForm' method="POST">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col_half">
@@ -83,7 +83,7 @@
                                         <label for="gov_id">KMC ID</label>
                                         <div class="input_field"> <span><i aria-hidden="true"
                                                     class="fa fa-id-card"></i></span>
-                                            <input type="text" id="gov_id" name="gov_id" placeholder="Government ID"
+                                            <input type="text" id="kmc_id" name="kmc_id" placeholder="KMC ID"
                                                 required />
                                         </div>
                                     </div>
@@ -128,13 +128,6 @@
                                     </div>
                                 </div>
 
-                                <label for="stay_selected_at">Staying Place</label>
-                                <div class="input_field"> <span><i aria-hidden="true"
-                                            class="fa fa-location-arrow"></i></span>
-                                    <input type="text" id="stay_selected_at" name="stay_selected_at"
-                                        placeholder="Staying Place" />
-                                </div>
-
                                 <div class="row clearfix">
                                     <div class="col_half">
                                         <label for="arrival_date">Arrival Date</label>
@@ -156,7 +149,8 @@
 
                                 <div class="row clearfix">
                                     <div class="col_half">
-                                        <label for="accomodation_request">Select Accommodation Request</label>
+                                        <label for="accomodation_request">Accommodation Assistance
+                                            Required?</label>
                                         <div class="input_field radio_option">
                                             <input type="radio" name="accomodation_request"
                                                 id="accomodation_request_yes" value="Yes">
@@ -166,21 +160,54 @@
                                                 id="accomodation_request_no" value="No">
                                             <label for="accomodation_request_no">No</label>
                                         </div>
+
                                         <div id="accommodation_dropdown" class="input_field select_option"
                                             style="display: none;">
-                                            <label for="accommodation_type">Accommodation Type</label>
-                                            <select id="accommodation_type" name="accommodation_type">
-                                                <option value="">Select Type</option>
-                                                <option value="Single Room">Single Room</option>
-                                                <option value="Double Room">Double Room</option>
-                                                <option value="Suite">Suite</option>
-                                            </select>
-                                            <div class="select_arrow mt-3"></div>
+                                            <div class="input_field select_option">
+                                                <label for="accommodation_type">Accommodation At</label>
+                                                <select id="accommodation_type" name="accommodation_type"
+                                                    onchange="showHotelDetails()">
+                                                    <option value="">Select Hotel</option>
+                                                    <option>The Fern Residency</option>
+                                                    <option>Hotel Le Grande</option>
+                                                    <option>Town Palace Hotel</option>
+                                                    <option>Kyriad Hotel</option>
+                                                    <option>Hotel Madhuvan International</option>
+                                                    <option>Hotel Basava Residency</option>
+                                                    <option>Hotel Magis Inn</option>
+                                                    <option>Hotel Kanishka International</option>
+                                                    <option>Hotel Ashoka Residency</option>
+                                                    <option>Hotel Royal Residency</option>
+                                                    <option>Hotel Godavari Lodging & Boarding</option>
+                                                    <option>Hotel Shree Sai Prabhat Lodging</option>
+                                                    <option>Hotel Milan</option>
+                                                    <option>Spoorti Resorts</option>
+                                                    <option>Hotel Pleasant Stay</option>
+                                                    <option>Hotel Shashinag Residency</option>
+                                                    <option>Hotel Kanishka International</option>
+                                                    <option>Ashoka Village</option>
+                                                    <option>Hotel Navaratna International</option>
+                                                    <option>Hotel Golden Heights</option>
+                                                    <option>Galaxy Club & Hotel</option>
+                                                    <option>Hotel Ratna Palace</option>
+                                                    <option>Hotel Ashoka Residency</option>
+                                                    <option>Hotel Heritage International</option>
+                                                    <!-- Add more hotel options here -->
+                                                </select>
+                                                <div class="select_arrow mt-3"></div>
+                                            </div>
+
+                                            <div id="hotel_details" style="display: none;">
+                                                <!--<h4>Hotel Details:</h4>-->
+                                                <p id="hotel_address"></p>
+                                                <p id="hotel_mobile"></p>
+                                            </div>
+
                                         </div>
                                     </div>
 
                                     <div class="col_half">
-                                        <label for="fees">Select Registration Fees</label>
+                                        <label for="fees">Registration Fee Type</label>
                                         <div class="input_field radio_option">
                                             <input type="radio" name="fees" id="fees_cash" value="cash">
                                             <label for="fees_cash">Cash</label>
@@ -196,8 +223,17 @@
                                                 <input type="text" id="receipt_no" name="receipt_no"
                                                     placeholder="Enter Receipt Number" />
                                             </div>
+
+                                            <!-- New Fees Paid Field for Cash -->
+                                            <label for="fees_paid_cash">Fees Paid</label>
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-location-arrow"></i></span>
+                                                <input type="text" id="fees_paid_cash" name="fees_paid_cash"
+                                                    placeholder="Enter Fees Paid" />
+                                            </div>
                                         </div>
 
+                                        <!-- Online Payment Section -->
                                         <div id="online_field" class="conditional_field" style="display: none;">
                                             <label for="utr_no">UTR Number</label>
                                             <div class="input_field">
@@ -205,7 +241,16 @@
                                                 <input type="text" id="utr_no" name="utr_no"
                                                     placeholder="Enter UTR Number" />
                                             </div>
+
+                                            <!-- New Fees Paid Field for Online -->
+                                            <label for="fees_paid_online">Fees Paid</label>
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-location-arrow"></i></span>
+                                                <input type="text" id="fees_paid_online" name="fees_paid_online"
+                                                    placeholder="Enter Fees Paid" />
+                                            </div>
                                         </div>
+
 
                                     </div>
                                 </div>
@@ -219,16 +264,136 @@
     </section>
 
     <script>
+        const hotels = {
+            "The Fern Residency": {
+                address: "Athani Road, Vijayapura",
+                mobile: "7947413606"
+            },
+            "Hotel Le Grande": {
+                address: "Sainik School Road, Vijayapura",
+                mobile: "7942690655"
+            },
+            "Town Palace Hotel": {
+                address: "Sainik School Road, Vijayapura",
+                mobile: "738087071"
+            },
+            "Kyriad Hotel": {
+                address: "Station Road, Vijayapura",
+                mobile: "9380902500"
+            },
+            "Hotel Madhuvan International": {
+                address: "Station Road, Vijayapura",
+                mobile: "9341000999"
+            },
+            "Hotel Basava Residency": {
+                address: "Station Road, Vijayapura",
+                mobile: "7947430112"
+            },
+            "Hotel Magis Inn": {
+                address: "Station Road, Vijayapura",
+                mobile: "7383474362"
+            },
+            "Hotel Kanishka International": {
+                address: "Rly Station Road, Vijayapura",
+                mobile: "7942698109"
+            },
+            "Hotel Ashoka Residency": {
+                address: "New College,Solapur Road, Vijayapura",
+                mobile: "8485980814"
+            },
+            "Hotel Royal Residency": {
+                address: "Station Road, Vijayapura",
+                mobile: "7947433774"
+            },
+            "Hotel Godavari Lodging & Boarding": {
+                address: "Athani Road, Vijayapura",
+                mobile: "7383104717"
+            },
+            "Hotel Shree Sai Prabhat Lodging": {
+                address: "Jamkhandi Road, Vijayapura",
+                mobile: "8147955742"
+            },
+            "Hotel Milan": {
+                address: "Solapur Road, Vijayapura",
+                mobile: "7947103732"
+            },
+            "Spoorti Resorts": {
+                address: "Athani-Solapur Ring Road, Vijayapura",
+                mobile: "7947105486"
+            },
+            "Hotel Pleasant Stay": {
+                address: "Solapur Road, Vijayapura",
+                mobile: "7942700850"
+            },
+            "Hotel Shashinag Residency": {
+                address: "Solapur-Vijayapura Bypass Road",
+                mobile: "738163292"
+            },
+            "Ashoka Village": {
+                address: "Vijayapura Road, Horti",
+                mobile: "8123036163"
+            },
+            "Hotel Navaratna International": {
+                address: "Station Road, Vijayapura",
+                mobile: "7947416923"
+            },
+            "Hotel Golden Heights": {
+                address: "Station Road, Vijayapura",
+                mobile: "7947130588"
+            },
+            "Galaxy Club & Hotel": {
+                address: "Cross Solapur Road, Vijayapura",
+                mobile: "7947419035"
+            },
+            "Hotel Ratna Palace": {
+                address: "Solapur Road, Vijayapura",
+                mobile: "7942681319"
+            },
+            "Hotel Heritage International": {
+                address: "Station Road, Vijayapura",
+                mobile: "7947148054"
+            }
+        };
+
+        function showHotelDetails() {
+            const hotelSelect = document.getElementById('accommodation_type');
+            const hotelId = hotelSelect.value;
+            const hotelDetailsDiv = document.getElementById('hotel_details');
+
+            if (hotelId && hotels[hotelId]) {
+                const selectedHotel = hotels[hotelId];
+
+                // Show the hotel details
+                document.getElementById('hotel_address').innerText = "Address: " + selectedHotel.address;
+                document.getElementById('hotel_mobile').innerText = "Mobile: " + selectedHotel.mobile;
+
+                hotelDetailsDiv.style.display = "block"; // Show details div
+            } else {
+                hotelDetailsDiv.style.display = "none"; // Hide details if no hotel selected
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
-            cashField = document.getElementById("cash_field");
-            onlineField = document.getElementById("online_field");
-            accomodationYesRadio = document.getElementById("accomodation_request_yes");
-            accomodationNoRadio = document.getElementById("accomodation_request_no");
-            accommodationDropdown = document.getElementById("accommodation_dropdown");
+            // Initialize required elements
+            const cashRadio = document.getElementById("fees_cash");
+            const onlineRadio = document.getElementById("fees_online");
+            const cashField = document.getElementById("cash_field");
+            const onlineField = document.getElementById("online_field");
+            const accomodationYesRadio = document.getElementById("accomodation_request_yes");
+            const accomodationNoRadio = document.getElementById("accomodation_request_no");
+            const accommodationDropdown = document.getElementById("accommodation_dropdown");
 
             function toggleFields() {
-                cashField.style.display = cashRadio.checked ? "block" : "none";
-                onlineField.style.display = onlineRadio.checked ? "block" : "none";
+                if (cashRadio.checked) {
+                    cashField.style.display = "block";
+                    onlineField.style.display = "none";
+                } else if (onlineRadio.checked) {
+                    onlineField.style.display = "block";
+                    cashField.style.display = "none";
+                } else {
+                    cashField.style.display = "none";
+                    onlineField.style.display = "none";
+                }
             }
 
             function toggleAccommodationDropdown() {
@@ -240,30 +405,53 @@
             accomodationYesRadio.addEventListener("change", toggleAccommodationDropdown);
             accomodationNoRadio.addEventListener("change", toggleAccommodationDropdown);
 
-            toggleFields(); 
+            // Initialize fields based on the default selection
+            toggleFields();
             toggleAccommodationDropdown();
         });
 
         // Form Submission Script
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            let feesNoValue = cashField.style.display === "block" ? $('#receipt_no').val() : $('#utr_no').val();
-            let data = {
+
+            const feesType = $('input[name="fees"]:checked').val();
+            let fees_no = '';
+            let fees_paid = '';
+
+            if (feesType === 'cash') {
+                fees_no = $('#receipt_no').val();
+                fees_paid = $('#fees_paid_cash').val();
+            } else if (feesType === 'online') {
+                fees_no = $('#utr_no').val();
+                fees_paid = $('#fees_paid_online').val();
+            }
+
+            // Validation for fees_paid to ensure value is present
+            // if (!fees_paid) {
+            //     Swal.fire({
+            //         icon: 'warning',
+            //         title: 'Missing Payment Amount',
+            //         text: 'Please enter the fees paid amount.',
+            //         confirmButtonText: 'OK'
+            //     });
+            //     return;
+            // }
+
+            const data = {
                 fullname: $('#fullname').val(),
                 email: $('#email').val(),
                 mobile: $('#mobile').val(),
-                gov_id: $('#gov_id').val(),
-                arrival_date: $('#arrival_date').val(),
-                arrival_time: $('#arrival_time').val(),
+                kmc_id: $('#kmc_id').val(),
                 working_place: $('#working_place').val(),
-                stay_selected_at: $('#stay_selected_at').val(),
                 departuring_place: $('#departuring_place').val(),
                 departuring_date: $('#departuring_date').val(),
                 departuring_time: $('#departuring_time').val(),
-                accomodation_request: $('input[name="accomodation_request"]:checked').val(),
-                fees: $('input[name="fees"]:checked').val(),
-                accommodation_type: $('#accommodation_type').val(),
-                fees_no: feesNoValue,
+                arrival_date: $('#arrival_date').val(),
+                arrival_time: $('#arrival_time').val(),
+                accommodation_assistance: $('input[name="accomodation_request"]:checked').val(),
+                fees_type: feesType,
+                fees_no: fees_no,
+                fees_paid: fees_paid
             };
 
             axios.post('{{ url('api/registers') }}', data)

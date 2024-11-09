@@ -19,17 +19,18 @@ class Register extends Model
         'fullname', 
         'email', 
         'mobile', 
-        'gov_id', 
-        'arrival_date', 
-        'arrival_time', 
+        'kmc_id', 
         'working_place', 
-        'stay_selected_at', 
         'departuring_place', 
         'departuring_date', 
         'departuring_time', 
-        'adults', 
-        'children', 
-        'accomodation_request'
+        'arrival_date', 
+        'arrival_time', 
+        'accommodation_assistance', 
+        'accommodation_at', 
+        'fees_type',
+        'fees_no',
+        'fees_paid'
     ];
 
 }

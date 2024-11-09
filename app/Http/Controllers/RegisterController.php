@@ -61,18 +61,18 @@ class RegisterController extends Controller
             'fullname' => 'required|string',
             'email' => 'nullable|email|unique:register,email',
             'mobile' => 'required|numeric',
-            'gov_id' => 'required|string|unique:register,gov_id',
-            'arrival_date' => 'nullable|date',
-            'arrival_time' => 'nullable|date_format:H:i',
+            'kmc_id' => 'required|string|unique:register,kmc_id',
             'working_place' => 'nullable|string',
-            'stay_selected_at' => 'nullable|string',
             'departuring_place' => 'nullable|string',
             'departuring_date' => 'nullable|date',
             'departuring_time' => 'nullable|date_format:H:i',
-            'accomodation_request' => 'nullable|string',
-            'accommodation_type' => 'nullable|string',
+            'arrival_date' => 'nullable|date',
+            'arrival_time' => 'nullable|date_format:H:i',
+            'accommodation_assistance' => 'nullable|string',
+            'accommodation_at' => 'nullable|string',
             'fees_type' => 'nullable|string',
             'fees_no' => 'nullable|string',
+            'fees_paid' => 'nullable|integer'
         ]);
 
         try {
